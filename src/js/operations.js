@@ -1,5 +1,6 @@
-export function whitForEach(coders) {
+export function index(coders) {
   const tbody = document.querySelector("tbody");
+  tbody.innerHTML = "";
   coders.forEach((coder) => {
     tbody.innerHTML += `
         <tr>
@@ -11,4 +12,15 @@ export function whitForEach(coders) {
        </td>
      </tr>`;
   });
+}
+
+export function create(name, lastName, email, coders) {
+  const newCoder = {
+    id: Date.now(),
+    name: name.value,
+    lastName: lastName.value,
+    email: email.value,
+  };
+
+  coders.push(newCoder);
 }
