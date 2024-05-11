@@ -10,6 +10,11 @@ export function index(coders) {
        <td class="tolowercase">
          ${coder.email}
        </td>
+       <td class="d-flex">
+       <button type="button" class="btn btn-danger" data-id=${coder.id}>delete</button>
+       <button type="button" class="btn btn-warning" data-id=${coder.id}>edit</button>
+       <button type="button" class="btn btn-primary" data-id=${coder.id}>details</button>
+       <td>
      </tr>`;
   });
 }

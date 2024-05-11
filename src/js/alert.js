@@ -1,9 +1,10 @@
 import Swal from "sweetalert2";
-export function alertSave(message) {
+
+export function alertSave(text) {
   Swal.fire({
     position: "top-end",
     icon: "success",
-    title: "Your work has been saved",
+    title: text,
     showConfirmButton: false,
     timer: 1500,
   });
