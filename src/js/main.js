@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 // Import all of Bootstrap's JS
 import * as bootstrap from "bootstrap";
 import { coders } from "../../public/database.js";
-import { index } from "./operations.js";
+import { index, deleteCoder } from "./operations.js";
 import { alertSave } from "./alert.js";
 
 let form = document.querySelector(".form");
@@ -21,6 +21,7 @@ const table = document.querySelector("table");
 const name = document.getElementById("name");
 const lastName = document.getElementById("last-name");
 const email = document.getElementById("email");
+const tbody = document.querySelector("tbody")
 
 form.addEventListener("submit", function (event) {
   const newCoder = {
@@ -44,14 +45,9 @@ table.addEventListener("click", function (event) {
     const idParaEliminar = event.target.getAttribute("data-id");
     console.log(idParaEliminar);
 
-    const idToDelete = event.target.parentElement.firstElementChild.texContent;
-    console.log(idToDelete);
+    deleteCoder(coders,idParaEliminar)
 
-    coders.forEach((coder) => {
-      if (coder.id == idParaEliminar) {
-        coder.splice(index, 1);
-      }
-    });
+ 
     alertSave("coder deleted");
     index(coders, tbody);
   }
